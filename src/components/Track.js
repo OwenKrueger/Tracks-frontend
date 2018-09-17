@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Contact.css";
+import "./Track.css";
 
-function Contact(props) {
+function Track(props) {
   return (
-    <div className="contact">
+    <div className="track">
       <span>{props.title}</span>
     </div>
   );
 }
 
-Contact.propTypes = {
+Track.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default Contact;
+export default Track;

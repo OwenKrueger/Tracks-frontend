@@ -4,20 +4,20 @@ import "./App.css";
 
 import axios from "axios";
 
-import ContactList from "./components/ContactList";
+import TrackList from "./components/TrackList";
 
 class App extends Component {
   // default state object
   state = {
-    contacts: []
+    tracks: []
   };
 
   componentDidMount() {
     axios
       .get("http://tracks:8000/alltracks")
       .then(response => {
-        // create an array of contacts only with relevant data
-        const newContacts = response.data.map(c => {
+        // create an array of tracks only with relevant data
+        const newTracks = response.data.map(c => {
           return {
             id: c.id,
             title: c.title
@@ -27,7 +27,7 @@ class App extends Component {
         // create a new "state" object without mutating
         // the original state object.
         const newState = Object.assign({}, this.state, {
-          contacts: newContacts
+          tracks: newTracks
         });
 
         // store the new state object in the component's state
@@ -41,10 +41,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React Contact Manager</h1>
+          <h1 className="App-title">Tracks Listing</h1>
         </header>
 
-        <ContactList contacts={this.state.contacts} />
+        <TrackList tracks={this.state.tracks} />
       </div>
     );
   }
