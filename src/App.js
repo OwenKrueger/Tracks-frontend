@@ -14,13 +14,13 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get("http://tracks:8000/alltracks")
       .then(response => {
         // create an array of contacts only with relevant data
         const newContacts = response.data.map(c => {
           return {
             id: c.id,
-            name: c.name
+            title: c.title
           };
         });
 
